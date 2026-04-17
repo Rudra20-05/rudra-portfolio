@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudra Dalvi — Full Stack Developer & AI ML Engineer</title>
+    <meta name="description"
+        content="Rudra Dalvi's portfolio — Full Stack Developer and Machine Learning Enthusiast from Vidyalankar Institute of Technology. Building modern web applications and intelligent systems.">
+    <meta name="keywords"
+        content="Rudra Dalvi, Portfolio, Full Stack Developer, Machine Learning, React, Python, Flask, TensorFlow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="nav-logo">RD<span class="logo-dot">.</span></a>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active" data-section="home">Home</a>
+            <a href="#about" class="nav-link" data-section="about">About</a>
+            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+            <a href="#journey" class="nav-link" data-section="journey">Journey</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+        <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#journey" class="mobile-link">Journey</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero" id="home">
+        <!-- Space Background Layers -->
+        <div class="space-bg">
+            <div class="stars-layer stars-small"></div>
+            <div class="stars-layer stars-medium"></div>
+            <div class="stars-layer stars-large"></div>
+            <div class="nebula nebula-1"></div>
+            <div class="nebula nebula-2"></div>
+            <div class="nebula nebula-3"></div>
+            <div class="shooting-star star-1"></div>
+            <div class="shooting-star star-2"></div>
+            <div class="shooting-star star-3"></div>
+            <div class="planet planet-1"></div>
+            <div class="planet planet-2"></div>
+        </div>
+
+        <!-- Floating Astronaut -->
+        <div class="astronaut-wrapper">
+            <img src="assets/astronaut.png?v=2" alt="Floating astronaut" class="astronaut-img">
+        </div>
+
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content hero-content-space">
+            <div class="hero-text hero-text-centered">
+                <div class="hero-badge reveal-up">
+                    <span class="badge-dot"></span>
+                    Available for opportunities
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-line reveal-up" style="--delay: 0.1s">Hey! I'm</span>
+                    <span class="hero-name reveal-up" style="--delay: 0.2s">Rudra<br>Dalvi</span>
+                </h1>
+                <p class="hero-subtitle reveal-up" style="--delay: 0.3s">
+                    <span class="typed-text" id="typedText"></span><span class="typed-cursor">|</span>
+                </p>
+                <p class="hero-description reveal-up" style="--delay: 0.4s">
+                    I craft intelligent web applications that blend clean code with machine learning — turning complex
+                    problems into elegant, user-friendly solutions.
+                </p>
+                <div class="hero-cta reveal-up" style="--delay: 0.5s">
+                    <a href="#projects" class="btn btn-primary magnetic" id="heroCtaPrimary">
+                        <span>View My Work</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="m7 17 9.2-9.2M17 17V7H7" />
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-outline magnetic" id="heroCtaSecondary">
+                        <span>Let's Talk</span>
+                    </a>
+                </div>
+                <div class="hero-stats reveal-up" style="--delay: 0.6s">
+                    <div class="stat">
+                        <span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="2">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Years Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator reveal-up" style="--delay: 0.8s">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">// WHO AM I</span>
+                <h2 class="section-title reveal-up">About <span class="gradient-text">Me</span></h2>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Card 1: Bio (large) -->
+                <div class="bento-card bento-bio reveal-up" style="--delay: 0.1s">
+                    <div class="bento-card-inner">
+                        <div class="code-window-dots">
+                            <span style="background: #ff5f57"></span>
+                            <span style="background: #febc2e"></span>
+                            <span style="background: #28c840"></span>
+                        </div>
+                        <div class="bio-content">
+                            <h3>Hi, I'm <span class="gradient-text">Rudra Dalvi</span></h3>
+                            <p>A passionate <strong>Full Stack Developer</strong> and <strong>AL ML Engineer
+                                </strong> from Vidyalankar Institute of Technology, Mumbai.</p>
+                            <p>Over the past couple of years, I've been diving deep into both frontend and backend
+                                technologies, building everything from intelligent prediction systems to dynamic
+                                web applications.</p>
+                            <p>I believe in writing clean, maintainable code and creating experiences that make a real
+                                difference.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Tech Stack (orbiting) -->
+                <div class="bento-card bento-tech reveal-up" style="--delay: 0.2s">
+                    <div class="bento-card-inner">
+                        <div class="orbit-container">
+                            <div class="orbit orbit-1">
+                                <div class="orbit-icon" style="--angle: 0deg" title="Python">
+                                    <svg viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="#3776AB"
+                                            d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.96 3.403 5.96h2.03v-2.867s-.109-3.42 3.35-3.42h5.766s3.24.052 3.24-3.148V3.202S18.28 0 11.914 0zM8.708 1.85a1.06 1.06 0 110 2.12 1.06 1.06 0 010-2.12z" />
+                                        <path fill="#FFD43B"
+                                            d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752h-5.814v-.826H20.1S24 18.211 24 12.031c0-6.18-3.403-5.96-3.403-5.96h-2.03v2.867s.109 3.42-3.35 3.42H9.451s-3.24-.052-3.24 3.148v5.292S5.72 24 12.086 24zm3.206-1.85a1.06 1.06 0 110-2.12 1.06 1.06 0 010 2.12z" />
+                                    </svg>
+                                </div>
+                                <div class="orbit-icon" style="--angle: 120deg" title="React">
+                                    <svg viewBox="0 0 24 24" width="24" height="24">
+                                        <circle cx="12" cy="12" r="2.05" fill="#61DAFB" />
+                                        <g stroke="#61DAFB" fill="none" stroke-width="1">
+                                            <ellipse rx="11" ry="4.2" cx="12" cy="12" />
+                                            <ellipse rx="11" ry="4.2" cx="12" cy="12" transform="rotate(60 12 12)" />
+                                            <ellipse rx="11" ry="4.2" cx="12" cy="12" transform="rotate(120 12 12)" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="orbit-icon" style="--angle: 240deg" title="JavaScript">
+                                    <svg viewBox="0 0 24 24" width="24" height="24">
+                                        <rect fill="#F7DF1E" width="24" height="24" rx="2" />
+                                        <path
+                                            d="M6 18.2l1.7-1c.3.6.7 1 1.4 1 .7 0 1.1-.3 1.1-1.5V10h2.1v6.7c0 2.5-1.5 3.6-3.6 3.6-1.9 0-2.3-.8-2.7-1.8zm6.4-.3l1.7-1c.4.7 1 1.2 2 1.2.8 0 1.4-.4 1.4-1 0-.7-.6-1-1.5-1.4l-.5-.2c-1.5-.6-2.5-1.4-2.5-3.1 0-1.5 1.2-2.7 3-2.7 1.3 0 2.2.5 2.9 1.6L17.3 13c-.3-.6-.7-.8-1.2-.8-.6 0-.9.3-.9.8 0 .5.4.8 1.2 1.1l.5.2c1.8.8 2.8 1.5 2.8 3.3 0 1.9-1.5 2.9-3.4 2.9-1.9 0-3.2-.9-3.8-2.1z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="orbit orbit-2">
+                                <div class="orbit-icon" style="--angle: 60deg" title="TensorFlow">
+                                    <svg viewBox="0 0 24 24" width="22" height="22">
+                                        <path fill="#FF6F00"
+                                            d="M1.292 5.856L11.54 0v4.8L6.416 7.697v4.8l-2.562 1.45V8.506z" />
+                                        <path fill="#FF6F00"
+                                            d="M11.54 0l10.248 5.856-2.562 1.45-7.686-4.36v4.8l5.124 2.897v9.6l-2.562 1.45v-9.6L11.54 14.4V0z" />
+                                        <path fill="#FF6F00" d="M6.416 18.297l5.124 2.897v-4.801l-5.124-2.897z" />
+                                    </svg>
+                                </div>
+                                <div class="orbit-icon" style="--angle: 180deg" title="Flask">
+                                    <svg viewBox="0 0 24 24" width="22" height="22">
+                                        <path fill="#ffffff"
+                                            d="M7.172 20.36c-.914-.72-1.89-1.31-2.456-2.403-.263-.508-.48-1.042-.592-1.608-.183-.918-.087-1.849-.043-2.776.03-.643.092-1.285.122-1.928.013-.277-.01-.558-.043-.834-.053-.439-.397-.648-.779-.79-.243-.09-.494-.158-.746-.222-.573-.147-.886-.526-.922-1.11-.022-.355.162-.574.452-.72.232-.117.482-.203.729-.287.355-.12.552-.37.63-.735.064-.295.152-.588.18-.886.086-.926.337-1.806.725-2.636.398-.851.977-1.543 1.752-2.063.47-.315.983-.522 1.53-.648.73-.169 1.47-.178 2.211-.094.792.09 1.522.369 2.191.788.19.12.356.273.541.402.094.065.12.143.063.243-.057.1-.127.195-.204.28-.115.128-.25.118-.39.034-.296-.177-.587-.365-.897-.517-.644-.315-1.33-.455-2.046-.477-.67-.02-1.32.067-1.932.329-.767.329-1.34.884-1.78 1.577-.357.563-.572 1.183-.688 1.836-.065.365-.088.737-.135 1.105-.031.242.053.466.159.683.187.383.495.626.871.797.2.091.407.169.606.263.484.227.655.615.62 1.126-.031.445-.117.885-.151 1.33-.036.457-.095.915-.065 1.372.04.59.107 1.186.279 1.757.231.766.618 1.433 1.137 2.025.083.095.172.185.265.27.157.143.164.262.015.416-.136.14-.288.264-.442.385-.105.083-.188.065-.278-.03z" />
+                                        <path fill="#ffffff"
+                                            d="M14.96 5.754c.05.033.117.057.149.103.048.07.003.135-.06.175-.166.104-.336.202-.507.296-.233.128-.336.335-.367.587-.042.345-.074.691-.117 1.036-.047.371-.045.751-.163 1.107-.03.091.018.133.068.18.288.273.592.527.876.804.202.196.39.408.567.627.434.536.731 1.144.915 1.805.179.643.233 1.301.21 1.966-.018.518-.107 1.027-.24 1.527-.234.881-.627 1.688-1.22 2.389-.407.482-.877.891-1.407 1.233-.145.094-.27.085-.383-.04-.105-.118-.21-.238-.297-.37-.075-.112-.04-.2.076-.275.196-.126.4-.242.584-.384.625-.48 1.103-1.085 1.454-1.799.346-.703.516-1.453.552-2.237.023-.503-.02-1.004-.142-1.493-.176-.707-.5-1.339-.94-1.908-.234-.302-.5-.577-.786-.832-.14-.125-.19-.258-.15-.446.058-.268.095-.54.137-.811.063-.408.125-.816.181-1.225.033-.24.09-.476.2-.694.073-.147.173-.271.302-.374.105-.083.22-.152.336-.219.02-.012.048-.01.082-.017z" />
+                                    </svg>
+                                </div>
+                                <div class="orbit-icon" style="--angle: 300deg" title="Git">
+                                    <svg viewBox="0 0 24 24" width="22" height="22">
+                                        <path fill="#F05032"
+                                            d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.66 2.66c.645-.222 1.387-.078 1.9.435.72.72.72 1.884 0 2.604-.72.719-1.885.719-2.604 0-.538-.536-.67-1.32-.4-1.978l-2.48-2.48v6.53c.175.087.34.2.486.346.72.72.72 1.885 0 2.604-.72.72-1.884.72-2.604 0-.72-.72-.72-1.885 0-2.604.177-.178.382-.318.604-.418v-6.6c-.222-.1-.427-.24-.604-.418-.545-.545-.676-1.342-.396-2.01L7.64 3.145.45 10.337c-.603.604-.603 1.582 0 2.186l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.604-.603.604-1.583 0-2.187" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="orbit-center">
+                                <span>&lt;/&gt;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Location / Globe -->
+                <div class="bento-card bento-location reveal-up" style="--delay: 0.3s">
+                    <div class="bento-card-inner">
+                        <div class="globe-visual">
+                            <div class="globe">
+                                <div class="globe-ring ring-1"></div>
+                                <div class="globe-ring ring-2"></div>
+                                <div class="globe-ring ring-3"></div>
+                                <div class="globe-dot"></div>
+                            </div>
+                        </div>
+                        <h3>Mumbai, India</h3>
+                        <p class="location-sub">IST (UTC+5:30)</p>
+                        <p class="location-open">Open to remote work worldwide</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Quick Contact -->
+                <div class="bento-card bento-contact-card reveal-up" style="--delay: 0.4s">
+                    <div class="bento-card-inner">
+                        <div class="contact-emoji">🚀</div>
+                        <h3>Want to start a project together?</h3>
+                        <button class="copy-email-btn magnetic" id="copyEmailBtn"
+                            data-email="dalvi.rudra1976@gmail.com">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                            <span>Copy my email</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5: Education -->
+                <div class="bento-card bento-education reveal-up" style="--delay: 0.5s">
+                    <div class="bento-card-inner">
+                        <div class="edu-icon">🎓</div>
+                        <h3>Education</h3>
+                        <p class="edu-college">Vidyalankar Institute of Technology</p>
+                        <p class="edu-degree">B.E. in Information Technology</p>
+                        <div class="edu-year">2023 — 2027</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TECH MARQUEE ============ -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>PYTHON</span><span class="marquee-dot">◆</span>
+                <span>REACT</span><span class="marquee-dot">◆</span>
+                <span>JAVASCRIPT</span><span class="marquee-dot">◆</span>
+                <span>TENSORFLOW</span><span class="marquee-dot">◆</span>
+                <span>FLASK</span><span class="marquee-dot">◆</span>
+                <span>HTML & CSS</span><span class="marquee-dot">◆</span>
+                <span>SCIKIT-LEARN</span><span class="marquee-dot">◆</span>
+                <span>GIT</span><span class="marquee-dot">◆</span>
+                <span>NODE.JS</span><span class="marquee-dot">◆</span>
+                <span>KERAS</span><span class="marquee-dot">◆</span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <span>PYTHON</span><span class="marquee-dot">◆</span>
+                <span>REACT</span><span class="marquee-dot">◆</span>
+                <span>JAVASCRIPT</span><span class="marquee-dot">◆</span>
+                <span>TENSORFLOW</span><span class="marquee-dot">◆</span>
+                <span>FLASK</span><span class="marquee-dot">◆</span>
+                <span>HTML & CSS</span><span class="marquee-dot">◆</span>
+                <span>SCIKIT-LEARN</span><span class="marquee-dot">◆</span>
+                <span>GIT</span><span class="marquee-dot">◆</span>
+                <span>NODE.JS</span><span class="marquee-dot">◆</span>
+                <span>KERAS</span><span class="marquee-dot">◆</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ PROJECTS SECTION ============ -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">// FEATURED WORK</span>
+                <h2 class="section-title reveal-up">Selected <span class="gradient-text">Projects</span></h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal-up" style="--delay: 0.1s">
+                    <div class="project-card-inner">
+                        <div class="project-number">01</div>
+                        <div class="project-header">
+                            <h3 class="project-title">Heart Disease Predictor</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/Rudra20-05/heart-disease-predictor" target="_blank"
+                                    rel="noopener" class="project-link" aria-label="GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">An ANN-based system that predicts heart disease risk using 13 clinical
+                            parameters. Features a probability gauge, risk-level badges, and personalized health
+                            recommendations.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Scikit-learn</span>
+                        </div>
+                        <div class="project-image-preview">
+                            <img src="assets/project heart-disease-1.png" alt="Heart Disease Predictor"
+                                class="project-preview-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal-up" style="--delay: 0.2s">
+                    <div class="project-card-inner">
+                        <div class="project-number">02</div>
+                        <div class="project-header">
+                            <h3 class="project-title">College Event Management System</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/Rudra20-05/vit-event-app" target="_blank" rel="noopener"
+                                    class="project-link" aria-label="GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">A full-featured event management platform for college festivals and
+                            activities. Handles event creation, registration, scheduling, and participant tracking with
+                            an intuitive admin dashboard.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Node.js</span>
+                        </div>
+                        <div class="project-image-preview">
+                            <img src="assets/event-management-1.png" alt="College Event Management System"
+                                class="project-preview-img">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Project 3 -->
+                <div class="project-card reveal-up" style="--delay: 0.4s">
+                    <div class="project-card-inner">
+                        <div class="project-number">03</div>
+                        <div class="project-header">
+                            <h3 class="project-title">Study Genie AI</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/Rudra20-05/studygenie-ai" target="_blank" rel="noopener"
+                                    class="project-link" aria-label="GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-desc">An AI-powered study companion that helps students generate summaries, flashcards, and quizzes from their notes and documents using advanced language models.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">React</span>
+                            <span class="tag">API</span>
+                        </div>
+                        <div class="project-image-preview">
+                            <img src="assets/study-genie-1.png" alt="Study Genie AI" class="project-preview-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ JOURNEY SECTION ============ -->
+    <section class="section journey" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">// MY PATH</span>
+                <h2 class="section-title reveal-up">Learning <span class="gradient-text">Journey</span></h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item reveal-up" style="--delay: 0.1s">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">The Beginning — Frontend Foundations</h3>
+                        <div class="timeline-tech">HTML • CSS • JavaScript</div>
+                        <p>Started my web development journey by mastering HTML, CSS, and JavaScript. Built static
+                            websites and learned responsive design principles. The spark that ignited my passion for
+                            creating beautiful digital experiences.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-up" style="--delay: 0.2s">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3 class="timeline-title">Leveling Up — React & Backend Development</h3>
+                        <div class="timeline-tech">React • Python • Flask • Node.js</div>
+                        <p>Dove into modern frameworks with React.js for building dynamic UIs. Simultaneously explored
+                            backend development with Python and Flask, learning to create REST APIs and connect
+                            frontends to backends.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-up" style="--delay: 0.3s">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3 class="timeline-title">Going Deeper — ML & Full Stack Projects</h3>
+                        <div class="timeline-tech">TensorFlow • Keras • Scikit-learn • ANN</div>
+                        <p>Entered the world of Machine Learning, building an ANN-based Heart Disease Predictor with
+                            TensorFlow. Combined ML with full-stack skills to create end-to-end intelligent applications
+                            with beautiful, functional interfaces.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-up" style="--delay: 0.4s">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2026+</div>
+                        <h3 class="timeline-title">What's Next — The Road Ahead</h3>
+                        <div class="timeline-tech">Deep Learning • Cloud • DevOps • Open Source</div>
+                        <p>Continuously expanding my toolkit — exploring deep learning architectures, cloud deployment,
+                            and contributing to open source. Building a future where technology meets creativity to
+                            solve real-world problems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT SECTION ============ -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-left reveal-up">
+                    <span class="section-tag">// GET IN TOUCH</span>
+                    <h2 class="contact-title">Let's build <span class="gradient-text">something amazing</span> together.
+                    </h2>
+                    <p class="contact-desc">Whether you have a project in mind, want to collaborate, or just want to say
+                        hi — my inbox is always open.</p>
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 4-10 8L2 4" />
+                            </svg>
+                            <span>dalvi.rudra1976@gmail.com</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>Mumbai, India</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Rudra20-05" target="_blank" rel="noopener"
+                            class="social-link magnetic" aria-label="GitHub">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/rudra-dalvi" target="_blank" rel="noopener"
+                            class="social-link magnetic" aria-label="LinkedIn">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="mailto:dalvi.rudra1976@gmail.com" class="social-link magnetic" aria-label="Email">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                                <path d="m22 4-10 8L2 4" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-right reveal-up" style="--delay: 0.2s">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mrerpakb" method="POST">
+                        <div class="form-group">
+                            <label for="formName">Your Name</label>
+                            <input type="text" id="formName" name="name" placeholder="John Doe" required
+                                autocomplete="name">
+                            <div class="input-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="formEmail">Your Email</label>
+                            <input type="email" id="formEmail" name="email" placeholder="john@example.com" required
+                                autocomplete="email">
+                            <div class="input-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="formMessage">Your Message</label>
+                            <textarea id="formMessage" name="message" placeholder="Tell me about your project..."
+                                rows="4" required></textarea>
+                            <div class="input-line"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit magnetic" id="submitBtn">
+                            <span>Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13" />
+                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-logo">RD<span class="logo-dot">.</span></span>
+                    <p>Crafted with ❤️ and lots of coffee</p>
+                </div>
+                <div class="footer-right">
+                    <p>&copy; 2025 Rudra Dalvi. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
