@@ -18,6 +18,14 @@
 </head>
 
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <span class="loader-logo">RD<span class="logo-dot">.</span></span>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        </div>
+    </div>
+
     <!-- Noise Overlay -->
     <div class="noise-overlay"></div>
 
@@ -31,10 +39,16 @@
         <div class="nav-links">
             <a href="#home" class="nav-link active" data-section="home">Home</a>
             <a href="#about" class="nav-link" data-section="about">About</a>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
             <a href="#projects" class="nav-link" data-section="projects">Projects</a>
             <a href="#journey" class="nav-link" data-section="journey">Journey</a>
             <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            <a href="nova.html" class="nav-link nav-nova">🤖 NOVA</a>
         </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <svg class="theme-icon icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="theme-icon icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
         <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
             <span></span>
             <span></span>
@@ -46,6 +60,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#home" class="mobile-link">Home</a>
         <a href="#about" class="mobile-link">About</a>
+        <a href="#skills" class="mobile-link">Skills</a>
         <a href="#projects" class="mobile-link">Projects</a>
         <a href="#journey" class="mobile-link">Journey</a>
         <a href="#contact" class="mobile-link">Contact</a>
@@ -293,6 +308,102 @@
         </div>
     </div>
 
+    <!-- ============ SKILLS GLOBE SECTION ============ -->
+    <section class="section skills-section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">// TECHNICAL EXPERTISE</span>
+                <h2 class="section-title reveal-up">My <span class="gradient-text">Arsenal</span></h2>
+            </div>
+            <div class="globe-scene reveal-up" style="--delay: 0.2s">
+                <div class="globe-3d-wrapper">
+                    <div class="globe-3d" id="skillsGlobe">
+                        <div class="globe-wireframe">
+                            <!-- Longitude rings (vertical meridians) -->
+                            <div class="ring-3d" style="--rotY: 0deg"></div>
+                            <div class="ring-3d" style="--rotY: 15deg"></div>
+                            <div class="ring-3d" style="--rotY: 30deg"></div>
+                            <div class="ring-3d" style="--rotY: 45deg"></div>
+                            <div class="ring-3d" style="--rotY: 60deg"></div>
+                            <div class="ring-3d" style="--rotY: 75deg"></div>
+                            <div class="ring-3d" style="--rotY: 90deg"></div>
+                            <div class="ring-3d" style="--rotY: 105deg"></div>
+                            <div class="ring-3d" style="--rotY: 120deg"></div>
+                            <div class="ring-3d" style="--rotY: 135deg"></div>
+                            <div class="ring-3d" style="--rotY: 150deg"></div>
+                            <div class="ring-3d" style="--rotY: 165deg"></div>
+                            <!-- Latitude rings (horizontal parallels) -->
+                            <div class="ring-3d ring-lat" style="--rotX: 90deg; --scl: 1"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 15deg; --scl: 0.97"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 30deg; --scl: 0.87"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 45deg; --scl: 0.71"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 60deg; --scl: 0.5"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 75deg; --scl: 0.26"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: -15deg; --scl: 0.97"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: -30deg; --scl: 0.87"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: -45deg; --scl: 0.71"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: -60deg; --scl: 0.5"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: -75deg; --scl: 0.26"></div>
+                        </div>
+                        <div class="globe-core-glow"></div>
+                        <div class="globe-core-dot"></div>
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #3776AB">🐍</span> Python
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #61DAFB">⚛️</span> React
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #F7DF1E; color: #000">JS</span> JavaScript
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #FF6F00">🧠</span> TensorFlow
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: rgba(255,255,255,0.15)">⚗️</span> Flask
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #F05032">🔀</span> Git
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #68A063">📦</span> Node.js
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #D00000">🔬</span> Keras
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #F89939">📊</span> Scikit-learn
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #E34F26">🌐</span> HTML/CSS
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #009688">⚡</span> FastAPI
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #000000; border: 1px solid rgba(255,255,255,0.2)">▲</span> Vercel
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #4DABCF">🔢</span> NumPy
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #181717; border: 1px solid rgba(255,255,255,0.2)">🐙</span> GitHub
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #FFD21E; color: #000">🤗</span> HuggingFace
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #47A248">🍃</span> MongoDB
+                    </div>
+                    <div class="tech-float">
+                        <span class="tech-float-icon" style="background: #150458">🐼</span> Pandas
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ============ PROJECTS SECTION ============ -->
     <section class="section projects" id="projects">
         <div class="container">
@@ -318,9 +429,14 @@
                                 </a>
                             </div>
                         </div>
-                        <p class="project-desc">An ANN-based system that predicts heart disease risk using 13 clinical
+                        <div class="project-view-toggle">
+                            <button class="view-btn active" data-view="scope">SCOPE</button>
+                            <button class="view-btn" data-view="tech">TECH</button>
+                        </div>
+                        <p class="project-desc project-scope">An ANN-based system that predicts heart disease risk using 13 clinical
                             parameters. Features a probability gauge, risk-level badges, and personalized health
                             recommendations.</p>
+                        <p class="project-desc project-tech" style="display:none">Built with TensorFlow/Keras ANN architecture, Scikit-learn for preprocessing &amp; feature scaling, Flask REST API backend, React.js frontend with interactive probability gauges and risk visualizations.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">TensorFlow</span>
@@ -351,9 +467,14 @@
                                 </a>
                             </div>
                         </div>
-                        <p class="project-desc">A full-featured event management platform for college festivals and
+                        <div class="project-view-toggle">
+                            <button class="view-btn active" data-view="scope">SCOPE</button>
+                            <button class="view-btn" data-view="tech">TECH</button>
+                        </div>
+                        <p class="project-desc project-scope">A full-featured event management platform for college festivals and
                             activities. Handles event creation, registration, scheduling, and participant tracking with
                             an intuitive admin dashboard.</p>
+                        <p class="project-desc project-tech" style="display:none">Node.js backend with Express routing, vanilla JavaScript frontend with dynamic DOM manipulation, CSS Grid/Flexbox responsive layouts, and session management.</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
@@ -385,7 +506,12 @@
                                 </a>
                             </div>
                         </div>
-                        <p class="project-desc">An AI-powered study companion that helps students generate summaries, flashcards, and quizzes from their notes and documents using advanced language models.</p>
+                        <div class="project-view-toggle">
+                            <button class="view-btn active" data-view="scope">SCOPE</button>
+                            <button class="view-btn" data-view="tech">TECH</button>
+                        </div>
+                        <p class="project-desc project-scope">An AI-powered study companion that helps students generate summaries, flashcards, and quizzes from their notes and documents using advanced language models.</p>
+                        <p class="project-desc project-tech" style="display:none">Python backend with AI/ML model integration, React.js interactive UI, RESTful API architecture, and advanced prompt engineering with language model APIs.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">AI/ML</span>
@@ -571,6 +697,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Edge Glow Overlays -->
+    <div class="edge-glow edge-glow-tl"></div>
+    <div class="edge-glow edge-glow-br"></div>
+
+    <!-- Flashlight Night Mode Overlay -->
+    <div class="flashlight-overlay" id="flashlightOverlay"></div>
+
+    <!-- Floating Contact FAB -->
+    <button class="fab-contact" id="fabContact" aria-label="Go to contact">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 4-10 8L2 4"/></svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
