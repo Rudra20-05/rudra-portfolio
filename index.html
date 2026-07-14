@@ -12,9 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100..800&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.6">
 </head>
 
 <body>
@@ -33,9 +33,11 @@
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
+
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <a href="#home" class="nav-logo">RD<span class="logo-dot">.</span></a>
+        <a href="#home" class="nav-logo">© Code by Rudra</a>
         <div class="nav-links">
             <a href="#home" class="nav-link active" data-section="home">Home</a>
             <a href="#about" class="nav-link" data-section="about">About</a>
@@ -70,208 +72,54 @@
     <section class="hero" id="home">
         <!-- Space Background Layers -->
         <div class="space-bg">
-            <div class="stars-layer stars-small"></div>
-            <div class="stars-layer stars-medium"></div>
-            <div class="stars-layer stars-large"></div>
-            <div class="nebula nebula-1"></div>
-            <div class="nebula nebula-2"></div>
-            <div class="nebula nebula-3"></div>
-            <div class="shooting-star star-1"></div>
-            <div class="shooting-star star-2"></div>
-            <div class="shooting-star star-3"></div>
-            <div class="planet planet-1"></div>
-            <div class="planet planet-2"></div>
+            <div id="galaxyBg" class="galaxy-container"></div>
         </div>
 
-        <!-- Floating Astronaut -->
-        <div class="astronaut-wrapper">
-            <img src="assets/astronaut.png?v=2" alt="Floating astronaut" class="astronaut-img">
+        <div class="vertical-grid-lines" aria-hidden="true">
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
+            <div class="grid-line"></div>
         </div>
 
-        <div class="hero-particles" id="heroParticles"></div>
-        <div class="hero-content hero-content-space">
-            <div class="hero-text hero-text-centered">
-                <div class="hero-badge reveal-up">
-                    <span class="badge-dot"></span>
-                    Available for opportunities
-                </div>
-                <h1 class="hero-title">
-                    <span class="hero-line reveal-up" style="--delay: 0.1s">Hey! I'm</span>
-                    <span class="hero-name reveal-up" style="--delay: 0.2s">Rudra<br>Dalvi</span>
-                </h1>
-                <p class="hero-subtitle reveal-up" style="--delay: 0.3s">
-                    <span class="typed-text" id="typedText"></span><span class="typed-cursor">|</span>
-                </p>
-                <p class="hero-description reveal-up" style="--delay: 0.4s">
-                    I craft intelligent web applications that blend clean code with machine learning — turning complex
-                    problems into elegant, user-friendly solutions.
-                </p>
-                <div class="hero-cta reveal-up" style="--delay: 0.5s">
-                    <a href="#projects" class="btn btn-primary magnetic" id="heroCtaPrimary">
-                        <span>View My Work</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="m7 17 9.2-9.2M17 17V7H7" />
-                        </svg>
-                    </a>
-                    <a href="#contact" class="btn btn-outline magnetic" id="heroCtaSecondary">
-                        <span>Let's Talk</span>
-                    </a>
-                </div>
-                <div class="hero-stats reveal-up" style="--delay: 0.6s">
-                    <div class="stat">
-                        <span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span>
-                        <span class="stat-label">Projects Built</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-number" data-target="2">0</span><span class="stat-plus">+</span>
-                        <span class="stat-label">Years Learning</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator reveal-up" style="--delay: 0.8s">
-            <div class="scroll-line"></div>
-            <span>Scroll</span>
+        <div class="hero-content-clean">
+            <h1 class="hero-main-title mask-reveal"><span class="mask-text-line">RUDRA</span></h1>
+            <h2 class="hero-sub-title mask-reveal"><span class="mask-text-line">WEB FRONT END & AI/ML ENGINEER</span></h2>
+            <p class="hero-desc-clean reveal-up" style="--delay: 0.3s">Based in Mumbai, India, I am passionate about creating unique, high-quality projects rather than focusing on quantity.</p>
         </div>
     </section>
 
     <!-- ============ ABOUT SECTION ============ -->
     <section class="section about" id="about">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag reveal-up">// WHO AM I</span>
-                <h2 class="section-title reveal-up">About <span class="gradient-text">Me</span></h2>
+            <div class="split-text-container about-title-container">
+                <div class="split-layer layer-left" aria-hidden="true">
+                    <div class="text-line title-about-1">WHO</div>
+                    <div class="text-line title-about-2">I AM</div>
+                </div>
+                <div class="split-layer layer-right">
+                    <div class="text-line title-about-1">WHO</div>
+                    <div class="text-line title-about-2">I AM</div>
+                </div>
             </div>
 
-            <div class="bento-grid">
-                <!-- Card 1: Bio (large) -->
-                <div class="bento-card bento-bio reveal-up" style="--delay: 0.1s">
-                    <div class="bento-card-inner">
-                        <div class="code-window-dots">
-                            <span style="background: #ff5f57"></span>
-                            <span style="background: #febc2e"></span>
-                            <span style="background: #28c840"></span>
-                        </div>
-                        <div class="bio-content">
-                            <h3>Hi, I'm <span class="gradient-text">Rudra Dalvi</span></h3>
-                            <p>A passionate <strong>Full Stack Developer</strong> and <strong>AL ML Engineer
-                                </strong> from Vidyalankar Institute of Technology, Mumbai.</p>
-                            <p>Over the past couple of years, I've been diving deep into both frontend and backend
-                                technologies, building everything from intelligent prediction systems to dynamic
-                                web applications.</p>
-                            <p>I believe in writing clean, maintainable code and creating experiences that make a real
-                                difference.</p>
-                        </div>
-                    </div>
+            <div class="about-split">
+                <div class="about-left">
+                    <p class="editorial-bio scroll-reveal-left">I am a passionate Full Stack Developer and AI/ML Engineer studying at Vidyalankar Institute of Technology, Mumbai. I focus on creating clean, maintainable systems that bridge robust logical backends with intuitive frontend user experiences.</p>
+                    <p class="editorial-sub scroll-reveal-left">Over the past couple of years, I've designed and deployed multiple end-to-end applications, integrating neural network architectures, machine learning classification engines, and custom user interfaces designed for performance.</p>
                 </div>
-
-                <!-- Card 2: Tech Stack (orbiting) -->
-                <div class="bento-card bento-tech reveal-up" style="--delay: 0.2s">
-                    <div class="bento-card-inner">
-                        <div class="orbit-container">
-                            <div class="orbit orbit-1">
-                                <div class="orbit-icon" style="--angle: 0deg" title="Python">
-                                    <svg viewBox="0 0 24 24" width="24" height="24">
-                                        <path fill="#3776AB"
-                                            d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.96 3.403 5.96h2.03v-2.867s-.109-3.42 3.35-3.42h5.766s3.24.052 3.24-3.148V3.202S18.28 0 11.914 0zM8.708 1.85a1.06 1.06 0 110 2.12 1.06 1.06 0 010-2.12z" />
-                                        <path fill="#FFD43B"
-                                            d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752h-5.814v-.826H20.1S24 18.211 24 12.031c0-6.18-3.403-5.96-3.403-5.96h-2.03v2.867s.109 3.42-3.35 3.42H9.451s-3.24-.052-3.24 3.148v5.292S5.72 24 12.086 24zm3.206-1.85a1.06 1.06 0 110-2.12 1.06 1.06 0 010 2.12z" />
-                                    </svg>
-                                </div>
-                                <div class="orbit-icon" style="--angle: 120deg" title="React">
-                                    <svg viewBox="0 0 24 24" width="24" height="24">
-                                        <circle cx="12" cy="12" r="2.05" fill="#61DAFB" />
-                                        <g stroke="#61DAFB" fill="none" stroke-width="1">
-                                            <ellipse rx="11" ry="4.2" cx="12" cy="12" />
-                                            <ellipse rx="11" ry="4.2" cx="12" cy="12" transform="rotate(60 12 12)" />
-                                            <ellipse rx="11" ry="4.2" cx="12" cy="12" transform="rotate(120 12 12)" />
-                                        </g>
-                                    </svg>
-                                </div>
-                                <div class="orbit-icon" style="--angle: 240deg" title="JavaScript">
-                                    <svg viewBox="0 0 24 24" width="24" height="24">
-                                        <rect fill="#F7DF1E" width="24" height="24" rx="2" />
-                                        <path
-                                            d="M6 18.2l1.7-1c.3.6.7 1 1.4 1 .7 0 1.1-.3 1.1-1.5V10h2.1v6.7c0 2.5-1.5 3.6-3.6 3.6-1.9 0-2.3-.8-2.7-1.8zm6.4-.3l1.7-1c.4.7 1 1.2 2 1.2.8 0 1.4-.4 1.4-1 0-.7-.6-1-1.5-1.4l-.5-.2c-1.5-.6-2.5-1.4-2.5-3.1 0-1.5 1.2-2.7 3-2.7 1.3 0 2.2.5 2.9 1.6L17.3 13c-.3-.6-.7-.8-1.2-.8-.6 0-.9.3-.9.8 0 .5.4.8 1.2 1.1l.5.2c1.8.8 2.8 1.5 2.8 3.3 0 1.9-1.5 2.9-3.4 2.9-1.9 0-3.2-.9-3.8-2.1z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="orbit orbit-2">
-                                <div class="orbit-icon" style="--angle: 60deg" title="TensorFlow">
-                                    <svg viewBox="0 0 24 24" width="22" height="22">
-                                        <path fill="#FF6F00"
-                                            d="M1.292 5.856L11.54 0v4.8L6.416 7.697v4.8l-2.562 1.45V8.506z" />
-                                        <path fill="#FF6F00"
-                                            d="M11.54 0l10.248 5.856-2.562 1.45-7.686-4.36v4.8l5.124 2.897v9.6l-2.562 1.45v-9.6L11.54 14.4V0z" />
-                                        <path fill="#FF6F00" d="M6.416 18.297l5.124 2.897v-4.801l-5.124-2.897z" />
-                                    </svg>
-                                </div>
-                                <div class="orbit-icon" style="--angle: 180deg" title="Flask">
-                                    <svg viewBox="0 0 24 24" width="22" height="22">
-                                        <path fill="#ffffff"
-                                            d="M7.172 20.36c-.914-.72-1.89-1.31-2.456-2.403-.263-.508-.48-1.042-.592-1.608-.183-.918-.087-1.849-.043-2.776.03-.643.092-1.285.122-1.928.013-.277-.01-.558-.043-.834-.053-.439-.397-.648-.779-.79-.243-.09-.494-.158-.746-.222-.573-.147-.886-.526-.922-1.11-.022-.355.162-.574.452-.72.232-.117.482-.203.729-.287.355-.12.552-.37.63-.735.064-.295.152-.588.18-.886.086-.926.337-1.806.725-2.636.398-.851.977-1.543 1.752-2.063.47-.315.983-.522 1.53-.648.73-.169 1.47-.178 2.211-.094.792.09 1.522.369 2.191.788.19.12.356.273.541.402.094.065.12.143.063.243-.057.1-.127.195-.204.28-.115.128-.25.118-.39.034-.296-.177-.587-.365-.897-.517-.644-.315-1.33-.455-2.046-.477-.67-.02-1.32.067-1.932.329-.767.329-1.34.884-1.78 1.577-.357.563-.572 1.183-.688 1.836-.065.365-.088.737-.135 1.105-.031.242.053.466.159.683.187.383.495.626.871.797.2.091.407.169.606.263.484.227.655.615.62 1.126-.031.445-.117.885-.151 1.33-.036.457-.095.915-.065 1.372.04.59.107 1.186.279 1.757.231.766.618 1.433 1.137 2.025.083.095.172.185.265.27.157.143.164.262.015.416-.136.14-.288.264-.442.385-.105.083-.188.065-.278-.03z" />
-                                        <path fill="#ffffff"
-                                            d="M14.96 5.754c.05.033.117.057.149.103.048.07.003.135-.06.175-.166.104-.336.202-.507.296-.233.128-.336.335-.367.587-.042.345-.074.691-.117 1.036-.047.371-.045.751-.163 1.107-.03.091.018.133.068.18.288.273.592.527.876.804.202.196.39.408.567.627.434.536.731 1.144.915 1.805.179.643.233 1.301.21 1.966-.018.518-.107 1.027-.24 1.527-.234.881-.627 1.688-1.22 2.389-.407.482-.877.891-1.407 1.233-.145.094-.27.085-.383-.04-.105-.118-.21-.238-.297-.37-.075-.112-.04-.2.076-.275.196-.126.4-.242.584-.384.625-.48 1.103-1.085 1.454-1.799.346-.703.516-1.453.552-2.237.023-.503-.02-1.004-.142-1.493-.176-.707-.5-1.339-.94-1.908-.234-.302-.5-.577-.786-.832-.14-.125-.19-.258-.15-.446.058-.268.095-.54.137-.811.063-.408.125-.816.181-1.225.033-.24.09-.476.2-.694.073-.147.173-.271.302-.374.105-.083.22-.152.336-.219.02-.012.048-.01.082-.017z" />
-                                    </svg>
-                                </div>
-                                <div class="orbit-icon" style="--angle: 300deg" title="Git">
-                                    <svg viewBox="0 0 24 24" width="22" height="22">
-                                        <path fill="#F05032"
-                                            d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.66 2.66c.645-.222 1.387-.078 1.9.435.72.72.72 1.884 0 2.604-.72.719-1.885.719-2.604 0-.538-.536-.67-1.32-.4-1.978l-2.48-2.48v6.53c.175.087.34.2.486.346.72.72.72 1.885 0 2.604-.72.72-1.884.72-2.604 0-.72-.72-.72-1.885 0-2.604.177-.178.382-.318.604-.418v-6.6c-.222-.1-.427-.24-.604-.418-.545-.545-.676-1.342-.396-2.01L7.64 3.145.45 10.337c-.603.604-.603 1.582 0 2.186l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.604-.603.604-1.583 0-2.187" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="orbit-center">
-                                <span>&lt;/&gt;</span>
-                            </div>
-                        </div>
+                <div class="about-right">
+                    <div class="about-meta-group scroll-reveal-right">
+                        <h4 class="meta-title">Education</h4>
+                        <p class="meta-desc"><strong>B.E. in Information Technology</strong><br>Vidyalankar Institute of Technology (2023 — 2027)</p>
                     </div>
-                </div>
-
-                <!-- Card 3: Location / Globe -->
-                <div class="bento-card bento-location reveal-up" style="--delay: 0.3s">
-                    <div class="bento-card-inner">
-                        <div class="globe-visual">
-                            <div class="globe">
-                                <div class="globe-ring ring-1"></div>
-                                <div class="globe-ring ring-2"></div>
-                                <div class="globe-ring ring-3"></div>
-                                <div class="globe-dot"></div>
-                            </div>
-                        </div>
-                        <h3>Mumbai, India</h3>
-                        <p class="location-sub">IST (UTC+5:30)</p>
-                        <p class="location-open">Open to remote work worldwide</p>
+                    <div class="about-meta-group scroll-reveal-right">
+                        <h4 class="meta-title">Core Competencies</h4>
+                        <p class="meta-desc">Full Stack Engineering • Neural Networks & Deep Learning • RESTful APIs • UI/UX Prototyping</p>
                     </div>
-                </div>
-
-                <!-- Card 4: Quick Contact -->
-                <div class="bento-card bento-contact-card reveal-up" style="--delay: 0.4s">
-                    <div class="bento-card-inner">
-                        <div class="contact-emoji">🚀</div>
-                        <h3>Want to start a project together?</h3>
-                        <button class="copy-email-btn magnetic" id="copyEmailBtn"
-                            data-email="dalvi.rudra1976@gmail.com">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                            </svg>
-                            <span>Copy my email</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Card 5: Education -->
-                <div class="bento-card bento-education reveal-up" style="--delay: 0.5s">
-                    <div class="bento-card-inner">
-                        <div class="edu-icon">🎓</div>
-                        <h3>Education</h3>
-                        <p class="edu-college">Vidyalankar Institute of Technology</p>
-                        <p class="edu-degree">B.E. in Information Technology</p>
-                        <div class="edu-year">2023 — 2027</div>
+                    <div class="about-meta-group scroll-reveal-right">
+                        <h4 class="meta-title">Core Tech Stack</h4>
+                        <p class="meta-desc">Python • JavaScript • React • Node.js • TensorFlow • Flask • Git & GitHub</p>
                     </div>
                 </div>
             </div>
@@ -308,95 +156,97 @@
         </div>
     </div>
 
-    <!-- ============ SKILLS GLOBE SECTION ============ -->
+    <!-- ============ SKILLS SECTION ============ -->
     <section class="section skills-section" id="skills">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag reveal-up">// TECHNICAL EXPERTISE</span>
-                <h2 class="section-title reveal-up">My <span class="gradient-text">Arsenal</span></h2>
+            <div class="split-text-container skills-title-container">
+                <div class="split-layer layer-left" aria-hidden="true">
+                    <div class="text-line title-skills-1">MY</div>
+                    <div class="text-line title-skills-2">ARSENAL</div>
+                </div>
+                <div class="split-layer layer-right">
+                    <div class="text-line title-skills-1">MY</div>
+                    <div class="text-line title-skills-2">ARSENAL</div>
+                </div>
             </div>
-            <div class="globe-scene reveal-up" style="--delay: 0.2s">
+            
+            <div class="globe-scene">
                 <div class="globe-3d-wrapper">
-                    <div class="globe-3d" id="skillsGlobe">
+                    <div class="globe-3d">
                         <div class="globe-wireframe">
-                            <!-- Longitude rings (vertical meridians) -->
+                            <!-- Latitudes -->
                             <div class="ring-3d" style="--rotY: 0deg"></div>
-                            <div class="ring-3d" style="--rotY: 15deg"></div>
                             <div class="ring-3d" style="--rotY: 30deg"></div>
-                            <div class="ring-3d" style="--rotY: 45deg"></div>
                             <div class="ring-3d" style="--rotY: 60deg"></div>
-                            <div class="ring-3d" style="--rotY: 75deg"></div>
                             <div class="ring-3d" style="--rotY: 90deg"></div>
-                            <div class="ring-3d" style="--rotY: 105deg"></div>
                             <div class="ring-3d" style="--rotY: 120deg"></div>
-                            <div class="ring-3d" style="--rotY: 135deg"></div>
                             <div class="ring-3d" style="--rotY: 150deg"></div>
-                            <div class="ring-3d" style="--rotY: 165deg"></div>
-                            <!-- Latitude rings (horizontal parallels) -->
-                            <div class="ring-3d ring-lat" style="--rotX: 90deg; --scl: 1"></div>
-                            <div class="ring-3d ring-lat" style="--rotX: 15deg; --scl: 0.97"></div>
-                            <div class="ring-3d ring-lat" style="--rotX: 30deg; --scl: 0.87"></div>
-                            <div class="ring-3d ring-lat" style="--rotX: 45deg; --scl: 0.71"></div>
-                            <div class="ring-3d ring-lat" style="--rotX: 60deg; --scl: 0.5"></div>
+                            <!-- Longitudes -->
                             <div class="ring-3d ring-lat" style="--rotX: 75deg; --scl: 0.26"></div>
-                            <div class="ring-3d ring-lat" style="--rotX: -15deg; --scl: 0.97"></div>
-                            <div class="ring-3d ring-lat" style="--rotX: -30deg; --scl: 0.87"></div>
-                            <div class="ring-3d ring-lat" style="--rotX: -45deg; --scl: 0.71"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 60deg; --scl: 0.5"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 45deg; --scl: 0.7"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 30deg; --scl: 0.86"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 15deg; --scl: 0.96"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: 0deg; --scl: 1"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: -15deg; --scl: 0.96"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: -30deg; --scl: 0.86"></div>
+                            <div class="ring-3d ring-lat" style="--rotX: -45deg; --scl: 0.7"></div>
                             <div class="ring-3d ring-lat" style="--rotX: -60deg; --scl: 0.5"></div>
                             <div class="ring-3d ring-lat" style="--rotX: -75deg; --scl: 0.26"></div>
                         </div>
                         <div class="globe-core-glow"></div>
                         <div class="globe-core-dot"></div>
                     </div>
-                    <div class="tech-float">
+                    
+                    <div class="tech-float" style="--tech-color: #3776AB">
                         <span class="tech-float-icon" style="background: #3776AB">🐍</span> Python
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #61DAFB">
                         <span class="tech-float-icon" style="background: #61DAFB">⚛️</span> React
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #F7DF1E">
                         <span class="tech-float-icon" style="background: #F7DF1E; color: #000">JS</span> JavaScript
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #FF6F00">
                         <span class="tech-float-icon" style="background: #FF6F00">🧠</span> TensorFlow
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #ffffff">
                         <span class="tech-float-icon" style="background: rgba(255,255,255,0.15)">⚗️</span> Flask
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #F05032">
                         <span class="tech-float-icon" style="background: #F05032">🔀</span> Git
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #68A063">
                         <span class="tech-float-icon" style="background: #68A063">📦</span> Node.js
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #D00000">
                         <span class="tech-float-icon" style="background: #D00000">🔬</span> Keras
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #F89939">
                         <span class="tech-float-icon" style="background: #F89939">📊</span> Scikit-learn
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #E34F26">
                         <span class="tech-float-icon" style="background: #E34F26">🌐</span> HTML/CSS
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #009688">
                         <span class="tech-float-icon" style="background: #009688">⚡</span> FastAPI
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #ffffff">
                         <span class="tech-float-icon" style="background: #000000; border: 1px solid rgba(255,255,255,0.2)">▲</span> Vercel
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #4DABCF">
                         <span class="tech-float-icon" style="background: #4DABCF">🔢</span> NumPy
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #ffffff">
                         <span class="tech-float-icon" style="background: #181717; border: 1px solid rgba(255,255,255,0.2)">🐙</span> GitHub
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #FFD21E">
                         <span class="tech-float-icon" style="background: #FFD21E; color: #000">🤗</span> HuggingFace
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #47A248">
                         <span class="tech-float-icon" style="background: #47A248">🍃</span> MongoDB
                     </div>
-                    <div class="tech-float">
+                    <div class="tech-float" style="--tech-color: #150458">
                         <span class="tech-float-icon" style="background: #150458">🐼</span> Pandas
                     </div>
                 </div>
@@ -407,44 +257,53 @@
     <!-- ============ PROJECTS SECTION ============ -->
     <section class="section projects" id="projects">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag reveal-up">// FEATURED WORK</span>
-                <h2 class="section-title reveal-up">Selected <span class="gradient-text">Projects</span></h2>
+            <div class="split-text-container projects-title-container">
+                <div class="split-layer layer-left" aria-hidden="true">
+                    <div class="text-line title-recent">RECENT</div>
+                    <div class="text-line title-work">WORK</div>
+                </div>
+                <div class="split-layer layer-right">
+                    <div class="text-line title-recent">RECENT</div>
+                    <div class="text-line title-work">WORK</div>
+                </div>
             </div>
+            <p class="projects-subtitle-clean">In the creative wilderness, clients find our work truly beloved.</p>
 
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card reveal-up" style="--delay: 0.1s">
                     <div class="project-card-inner">
-                        <div class="project-number">01</div>
-                        <div class="project-header">
-                            <h3 class="project-title">Heart Disease Predictor</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/Rudra20-05/heart-disease-predictor" target="_blank"
-                                    rel="noopener" class="project-link" aria-label="GitHub">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                    </svg>
-                                </a>
+                        <div class="project-details">
+                            <div class="project-number">01</div>
+                            <div class="project-header">
+                                <h3 class="project-title">Heart Disease Predictor</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Rudra20-05/heart-disease-predictor" target="_blank"
+                                        rel="noopener" class="project-link" aria-label="GitHub">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-view-toggle">
+                                <button class="view-btn active" data-view="scope">SCOPE</button>
+                                <button class="view-btn" data-view="tech">TECH</button>
+                            </div>
+                            <p class="project-desc project-scope">An ANN-based system that predicts heart disease risk using 13 clinical
+                                parameters. Features a probability gauge, risk-level badges, and personalized health
+                                recommendations.</p>
+                            <p class="project-desc project-tech" style="display:none">Built with TensorFlow/Keras ANN architecture, Scikit-learn for preprocessing &amp; feature scaling, Flask REST API backend, React.js frontend with interactive probability gauges and risk visualizations.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">Flask</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Scikit-learn</span>
                             </div>
                         </div>
-                        <div class="project-view-toggle">
-                            <button class="view-btn active" data-view="scope">SCOPE</button>
-                            <button class="view-btn" data-view="tech">TECH</button>
-                        </div>
-                        <p class="project-desc project-scope">An ANN-based system that predicts heart disease risk using 13 clinical
-                            parameters. Features a probability gauge, risk-level badges, and personalized health
-                            recommendations.</p>
-                        <p class="project-desc project-tech" style="display:none">Built with TensorFlow/Keras ANN architecture, Scikit-learn for preprocessing &amp; feature scaling, Flask REST API backend, React.js frontend with interactive probability gauges and risk visualizations.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">Flask</span>
-                            <span class="tag">React</span>
-                            <span class="tag">Scikit-learn</span>
-                        </div>
-                        <div class="project-image-preview">
+                        <div class="project-image-preview reveal-right">
                             <img src="assets/project heart-disease-1.png" alt="Heart Disease Predictor"
                                 class="project-preview-img">
                         </div>
@@ -454,71 +313,73 @@
                 <!-- Project 2 -->
                 <div class="project-card reveal-up" style="--delay: 0.2s">
                     <div class="project-card-inner">
-                        <div class="project-number">02</div>
-                        <div class="project-header">
-                            <h3 class="project-title">College Event Management System</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/Rudra20-05/vit-event-app" target="_blank" rel="noopener"
-                                    class="project-link" aria-label="GitHub">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                    </svg>
-                                </a>
+                        <div class="project-details">
+                            <div class="project-number">02</div>
+                            <div class="project-header">
+                                <h3 class="project-title">College Event Management System</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Rudra20-05/vit-event-app" target="_blank" rel="noopener"
+                                        class="project-link" aria-label="GitHub">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-view-toggle">
+                                <button class="view-btn active" data-view="scope">SCOPE</button>
+                                <button class="view-btn" data-view="tech">TECH</button>
+                            </div>
+                            <p class="project-desc project-scope">A full-featured event management platform for college festivals and
+                                activities. Handles event creation, registration, scheduling, and participant tracking with
+                                an intuitive admin dashboard.</p>
+                            <p class="project-desc project-tech" style="display:none">Node.js backend with Express routing, vanilla JavaScript frontend with dynamic DOM manipulation, CSS Grid/Flexbox responsive layouts, and session management.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Node.js</span>
                             </div>
                         </div>
-                        <div class="project-view-toggle">
-                            <button class="view-btn active" data-view="scope">SCOPE</button>
-                            <button class="view-btn" data-view="tech">TECH</button>
-                        </div>
-                        <p class="project-desc project-scope">A full-featured event management platform for college festivals and
-                            activities. Handles event creation, registration, scheduling, and participant tracking with
-                            an intuitive admin dashboard.</p>
-                        <p class="project-desc project-tech" style="display:none">Node.js backend with Express routing, vanilla JavaScript frontend with dynamic DOM manipulation, CSS Grid/Flexbox responsive layouts, and session management.</p>
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Node.js</span>
-                        </div>
-                        <div class="project-image-preview">
+                        <div class="project-image-preview reveal-left">
                             <img src="assets/event-management-1.png" alt="College Event Management System"
                                 class="project-preview-img">
                         </div>
                     </div>
                 </div>
 
-
-
                 <!-- Project 3 -->
                 <div class="project-card reveal-up" style="--delay: 0.4s">
                     <div class="project-card-inner">
-                        <div class="project-number">03</div>
-                        <div class="project-header">
-                            <h3 class="project-title">Study Genie AI</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/Rudra20-05/studygenie-ai" target="_blank" rel="noopener"
-                                    class="project-link" aria-label="GitHub">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                    </svg>
-                                </a>
+                        <div class="project-details">
+                            <div class="project-number">03</div>
+                            <div class="project-header">
+                                <h3 class="project-title">Study Genie AI</h3>
+                                <div class="project-links">
+                                    <a href="https://github.com/Rudra20-05/studygenie-ai" target="_blank" rel="noopener"
+                                        class="project-link" aria-label="GitHub">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-view-toggle">
+                                <button class="view-btn active" data-view="scope">SCOPE</button>
+                                <button class="view-btn" data-view="tech">TECH</button>
+                            </div>
+                            <p class="project-desc project-scope">An AI-powered study companion that helps students generate summaries, flashcards, and quizzes from their notes and documents using advanced language models.</p>
+                            <p class="project-desc project-tech" style="display:none">Python backend with AI/ML model integration, React.js interactive UI, RESTful API architecture, and advanced prompt engineering with language model APIs.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">AI/ML</span>
+                                <span class="tag">React</span>
+                                <span class="tag">API</span>
                             </div>
                         </div>
-                        <div class="project-view-toggle">
-                            <button class="view-btn active" data-view="scope">SCOPE</button>
-                            <button class="view-btn" data-view="tech">TECH</button>
-                        </div>
-                        <p class="project-desc project-scope">An AI-powered study companion that helps students generate summaries, flashcards, and quizzes from their notes and documents using advanced language models.</p>
-                        <p class="project-desc project-tech" style="display:none">Python backend with AI/ML model integration, React.js interactive UI, RESTful API architecture, and advanced prompt engineering with language model APIs.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">AI/ML</span>
-                            <span class="tag">React</span>
-                            <span class="tag">API</span>
-                        </div>
-                        <div class="project-image-preview">
+                        <div class="project-image-preview reveal-right">
                             <img src="assets/study-genie-1.png" alt="Study Genie AI" class="project-preview-img">
                         </div>
                     </div>
@@ -532,7 +393,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag reveal-up">// MY PATH</span>
-                <h2 class="section-title reveal-up">Learning <span class="gradient-text">Journey</span></h2>
+                <h2 class="section-title mask-reveal"><span class="mask-text-line">Learning <span class="gradient-text">Journey</span></span></h2>
             </div>
 
             <div class="timeline">
@@ -603,8 +464,7 @@
             <div class="contact-wrapper">
                 <div class="contact-left reveal-up">
                     <span class="section-tag">// GET IN TOUCH</span>
-                    <h2 class="contact-title">Let's build <span class="gradient-text">something amazing</span> together.
-                    </h2>
+                    <h2 class="contact-title mask-reveal"><span class="mask-text-line">Let's build <span class="gradient-text">something amazing</span> together.</span></h2>
                     <p class="contact-desc">Whether you have a project in mind, want to collaborate, or just want to say
                         hi — my inbox is always open.</p>
                     <div class="contact-info">
@@ -710,7 +570,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 4-10 8L2 4"/></svg>
     </button>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js?v=1.6"></script>
 </body>
 
 </html>
