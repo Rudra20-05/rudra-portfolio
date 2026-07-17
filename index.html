@@ -14,7 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100..800&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=3.9">
+    <link rel="stylesheet" href="style.css?v=4.0">
 </head>
 
 <body>
@@ -487,6 +487,11 @@
             </div>
 
             <div class="process-grid">
+                <!-- Timeline progress line -->
+                <div class="process-grid-timeline-line" aria-hidden="true">
+                    <div class="process-grid-timeline-progress" id="timelineProgressLine"></div>
+                </div>
+
                 <!-- Item 1 -->
                 <div class="process-item reveal-up" style="--delay: 0.1s">
                     <div class="process-number">01</div>
@@ -645,7 +650,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 4-10 8L2 4"/></svg>
     </button>
 
-    <script type="module" src="script.js?v=2.4"></script>
+    <script type="module" src="script.js?v=2.5"></script>
 </body>
 
 </html>

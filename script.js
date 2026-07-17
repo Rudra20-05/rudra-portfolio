@@ -1266,6 +1266,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // --- SCROLL-DRIVEN TIMELINE PROGRESS FOR JOURNEY SECTION ---
+        const processGrid = document.querySelector('.process-grid');
+        const progressLine = document.getElementById('timelineProgressLine');
+        if (processGrid && progressLine) {
+            const rect = processGrid.getBoundingClientRect();
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Get absolute page top of the grid
+            const gridPageTop = rect.top + scrollY;
+            
+            // Top and bottom positions of the timeline line
+            const linePageTop = gridPageTop + 56;
+            const linePageBottom = gridPageTop + rect.height - 56;
+            
+            // Scroll trigger scrollY values
+            const triggerStart = linePageTop - viewportHeight * 0.6;
+            const triggerEnd = linePageBottom - viewportHeight * 0.8;
+            
+            let progress = 0;
+            if (scrollY <= triggerStart) {
+                progress = 0;
+            } else if (scrollY >= triggerEnd) {
+                progress = 1;
+            } else {
+                progress = (scrollY - triggerStart) / (triggerEnd - triggerStart);
+            }
+            
+            progressLine.style.transform = `scaleY(${progress})`;
+        }
+
         // --- SCROLL-DRIVEN CONTENT REVEALS FOR ABOUT SECTION ---
         const scrollLefts = document.querySelectorAll('.scroll-reveal-left');
         const scrollRights = document.querySelectorAll('.scroll-reveal-right');
