@@ -1286,14 +1286,25 @@ button {
     justify-content: space-between;
     gap: clamp(40px, 6vw, 80px);
     width: 100%;
+    position: relative;
 }
 
 .project-row:nth-child(even) {
     flex-direction: row-reverse;
 }
 
+@media (min-width: 901px) {
+    .project-row:not(:first-child) {
+        margin-top: -140px;
+    }
+    .project-row:nth-child(1) { z-index: 10; }
+    .project-row:nth-child(2) { z-index: 11; }
+    .project-row:nth-child(3) { z-index: 12; }
+    .project-row:nth-child(4) { z-index: 13; }
+}
+
 .project-content {
-    flex: 1 1 45%;
+    flex: 1 1 40%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1381,12 +1392,12 @@ button {
 
 /* Showcase & Mockup Styles */
 .project-showcase {
-    flex: 1 1 50%;
+    flex: 1 1 54%;
     position: relative;
     height: clamp(340px, 32vw, 440px);
     border-radius: 24px;
     background: var(--card-bg);
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1729,106 +1740,106 @@ button {
 
 /* --- Project 1: EMS Layout (Laptop + Overlapping Tablet & Phone) --- */
 .project-ems .mockup-macbook {
-    width: 85%;
+    width: 90%;
     left: 50%;
     top: 48%;
     transform: translate(-50%, -50%);
     z-index: 2;
 }
 .project-ems .mockup-ipad {
-    width: 38%;
-    left: 2%;
+    width: 44%;
+    left: -10%;
     top: 54%;
     transform: translateY(-50%);
     z-index: 3;
 }
 .project-ems .mockup-iphone {
-    width: 22%;
-    right: 2%;
+    width: 25%;
+    right: -8%;
     top: 58%;
     transform: translateY(-50%);
     z-index: 3;
 }
 /* Hovers */
 .project-ems:hover .mockup-macbook {
-    transform: translate(-50%, -54%) scale(1.02);
+    transform: translate(-50%, -54%) scale(1.03);
 }
 .project-ems:hover .mockup-ipad {
-    transform: translateY(-54%) scale(1.02) rotate(-1deg);
+    transform: translateY(-54%) translateX(-8px) scale(1.05) rotate(-3deg);
 }
 .project-ems:hover .mockup-iphone {
-    transform: translateY(-54%) scale(1.02) rotate(1deg);
+    transform: translateY(-54%) translateX(8px) scale(1.07) rotate(3deg);
 }
 
 /* --- Project 2: Naya Dharavi Layout (Browser + Tablet & Phone) --- */
 .project-nd .mockup-browser {
-    width: 85%;
+    width: 90%;
     left: 50%;
     top: 48%;
     transform: translate(-50%, -50%);
     z-index: 2;
 }
 .project-nd .mockup-ipad {
-    width: 38%;
-    left: 2%;
+    width: 44%;
+    left: -10%;
     top: 54%;
     transform: translateY(-50%);
     z-index: 3; /* in front of browser */
 }
 .project-nd .mockup-iphone {
-    width: 22%;
-    right: 2%;
+    width: 25%;
+    right: -8%;
     top: 58%;
     transform: translateY(-50%);
     z-index: 3; /* in front of browser */
 }
 /* Hovers */
 .project-nd:hover .mockup-browser {
-    transform: translate(-50%, -54%) scale(1.02);
+    transform: translate(-50%, -54%) scale(1.03);
 }
 .project-nd:hover .mockup-ipad {
-    transform: translateY(-54%) scale(1.02) rotate(-1deg);
+    transform: translateY(-54%) translateX(-8px) scale(1.05) rotate(-3deg);
 }
 .project-nd:hover .mockup-iphone {
-    transform: translateY(-54%) scale(1.02) rotate(1deg);
+    transform: translateY(-54%) translateX(8px) scale(1.07) rotate(3deg);
 }
 
 /* --- Project 3: EcoQuest Layout (iMac + Tablet & Phone) --- */
 .project-eco .mockup-monitor {
-    width: 85%;
+    width: 90%;
     left: 50%;
     top: 46%;
     transform: translate(-50%, -50%);
     z-index: 2;
 }
 .project-eco .mockup-ipad {
-    width: 38%;
-    left: 2%;
+    width: 44%;
+    left: -10%;
     top: 54%;
     transform: translateY(-50%);
     z-index: 3; /* in front of monitor */
 }
 .project-eco .mockup-iphone {
-    width: 22%;
-    right: 2%;
+    width: 25%;
+    right: -8%;
     top: 58%;
     transform: translateY(-50%);
     z-index: 3; /* in front */
 }
 /* Hovers */
 .project-eco:hover .mockup-monitor {
-    transform: translate(-50%, -50%) translateY(-10px) scale(1.02);
+    transform: translate(-50%, -50%) translateY(-10px) scale(1.03);
 }
 .project-eco:hover .mockup-ipad {
-    transform: translateY(-54%) scale(1.02) rotate(-1deg);
+    transform: translateY(-54%) translateX(-8px) scale(1.05) rotate(-3deg);
 }
 .project-eco:hover .mockup-iphone {
-    transform: translateY(-54%) scale(1.02) rotate(1deg);
+    transform: translateY(-54%) translateX(8px) scale(1.07) rotate(3deg);
 }
 
 /* --- Project 4: Autonova AI Layout (Browser + Tablet & Phone) --- */
 .project-autonova .mockup-browser {
-    width: 85%;
+    width: 90%;
     left: 50%;
     top: 48%;
     transform: translate(-50%, -50%);
@@ -1836,16 +1847,16 @@ button {
     transition: transform 0.6s var(--ease-out-expo);
 }
 .project-autonova .mockup-ipad {
-    width: 38%;
-    left: 2%;
+    width: 44%;
+    left: -10%;
     top: 54%;
     transform: translateY(-50%);
     z-index: 3;
     transition: transform 0.6s var(--ease-out-expo);
 }
 .project-autonova .mockup-iphone {
-    width: 22%;
-    right: 2%;
+    width: 25%;
+    right: -8%;
     top: 58%;
     transform: translateY(-50%);
     z-index: 3;
@@ -1853,13 +1864,13 @@ button {
 }
 /* Hovers */
 .project-autonova:hover .mockup-browser {
-    transform: translate(-50%, -54%) scale(1.02);
+    transform: translate(-50%, -54%) scale(1.03);
 }
 .project-autonova:hover .mockup-ipad {
-    transform: translateY(-54%) scale(1.02) rotate(-1deg);
+    transform: translateY(-54%) translateX(-8px) scale(1.05) rotate(-3deg);
 }
 .project-autonova:hover .mockup-iphone {
-    transform: translateY(-54%) scale(1.02) rotate(1deg);
+    transform: translateY(-54%) translateX(8px) scale(1.07) rotate(3deg);
 }
 
 /* White device borders for dark projects (3 and 4) */
@@ -1906,6 +1917,7 @@ button {
     }
     .project-showcase {
         height: 320px;
+        overflow: hidden;
     }
     .project-display-title {
         font-size: 2.2rem;
