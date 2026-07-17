@@ -342,8 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animateCursorRing();
 
-    // Cursor hover effects
-    const hoverElements = document.querySelectorAll('a, button, .project-card, .bento-card, .magnetic');
+    const hoverElements = document.querySelectorAll('a, button, .project-showcase, .bento-card, .magnetic');
     hoverElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursorDot.classList.add('hovering');
@@ -426,7 +425,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ===== SCROLL REVEAL ANIMATIONS =====
-    const revealElements = document.querySelectorAll('.reveal-up, .mask-reveal, .reveal-left, .reveal-right');
+    const allRevealElements = document.querySelectorAll('.reveal-up, .mask-reveal, .reveal-left, .reveal-right');
+    const revealElements = Array.from(allRevealElements).filter(el => !el.classList.contains('project-row'));
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -438,10 +438,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, {
         threshold: 0.05,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -100px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // Specific Observer for Projects to trigger animations only when they are well in view
+    const projectRows = document.querySelectorAll('.project-row');
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            } else {
+                const rect = entry.boundingClientRect;
+                if (rect.top > 0) {
+                    entry.target.classList.remove('revealed');
+                }
+            }
+        });
+    }, {
+        threshold: 0.35, // Requires 35% of the project row to be visible
+        rootMargin: '0px 0px -25% 0px' // Requires it to enter 25% of the viewport height
+    });
+
+    projectRows.forEach(row => projectObserver.observe(row));
 
 
     // ===== TYPED TEXT EFFECT =====
@@ -787,35 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ===== PROJECT CARD SCOPE/TECH TABS =====
-    document.querySelectorAll('.project-view-toggle').forEach(toggle => {
-        const card = toggle.closest('.project-card-inner');
-        const scopeEl = card.querySelector('.project-scope');
-        const techEl = card.querySelector('.project-tech');
-        const btns = toggle.querySelectorAll('.view-btn');
 
-        btns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                btns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                if (btn.dataset.view === 'scope') {
-                    scopeEl.style.display = '';
-                    techEl.style.display = 'none';
-                    // Re-trigger animation
-                    scopeEl.style.animation = 'none';
-                    scopeEl.offsetHeight;
-                    scopeEl.style.animation = '';
-                } else {
-                    scopeEl.style.display = 'none';
-                    techEl.style.display = '';
-                    techEl.style.animation = 'none';
-                    techEl.offsetHeight;
-                    techEl.style.animation = '';
-                }
-            });
-        });
-    });
 
 
     // ===== AI CHATBOT =====
@@ -1060,7 +1052,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animateTail);
 
     // ===== DYNAMIC CARD HOVER GLOW =====
-    const cards = document.querySelectorAll('.bento-card, .project-card');
+    const cards = document.querySelectorAll('.bento-card, .project-showcase');
     cards.forEach(card => {
         const coords = card.querySelector('.bento-coords');
         card.addEventListener('mousemove', (e) => {
@@ -1083,6 +1075,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== SCROLL-DRIVEN SPLIT TEXT REVEAL =====
     const aboutSection = document.getElementById('about');
     const projectsSection = document.getElementById('projects');
+
+    let currentGlobeScale = 0.10;
+    let targetGlobeScale = 0.10;
 
     function updateSplitTitles() {
         const viewportHeight = window.innerHeight;
@@ -1152,6 +1147,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 container.style.setProperty('--reveal-progress', progress);
             }
+
+            // Calculate progress specifically for the 3D globe scene
+            const globeScene = skillsSection.querySelector('.globe-scene');
+            if (globeScene) {
+                const globeRect = globeScene.getBoundingClientRect();
+                const globeCenterY = globeRect.top + globeRect.height / 2;
+                
+                const startY = viewportHeight * 0.95; // Starts when globe center is near screen bottom
+                const endY = viewportHeight * 0.28; // Ends when globe center reaches 28% from screen top (fully scrolled in)
+
+                let globeProgress = 0;
+                if (globeCenterY >= startY) {
+                    globeProgress = 0;
+                } else if (globeCenterY <= endY) {
+                    globeProgress = 1;
+                } else {
+                    globeProgress = (startY - globeCenterY) / (startY - endY);
+                }
+
+                // Smooth linear-to-quadratic mix for very steady growth
+                const easedGlobeProgress = 0.5 * globeProgress + 0.5 * (1 - Math.pow(1 - globeProgress, 2));
+                targetGlobeScale = 0.10 + easedGlobeProgress * 1.05; // scales from 0.10 to 1.15
+            }
         }
 
         if (projectsSection) {
@@ -1181,6 +1199,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 titleRecent.forEach(el => el.style.transform = `translateX(${x1}px)`);
                 titleWork.forEach(el => el.style.transform = `translateX(${x2}px)`);
+
+                container.style.setProperty('--reveal-progress', progress);
+            }
+        }
+
+        const journeySection = document.getElementById('journey');
+        if (journeySection) {
+            const container = journeySection.querySelector('.journey-title-container');
+            if (container) {
+                const rect = container.getBoundingClientRect();
+                const startScrollY = viewportHeight;
+                const endScrollY = viewportHeight * 0.15;
+                const currentScrollY = rect.top;
+
+                let progress = 0;
+                if (currentScrollY >= startScrollY) {
+                    progress = 0;
+                } else if (currentScrollY <= endScrollY) {
+                    progress = 1;
+                } else {
+                    progress = (startScrollY - currentScrollY) / (startScrollY - endScrollY);
+                }
+
+                const x1 = maxMove * (1 - progress);
+                const x2 = -maxMove * (1 - progress);
+
+                const titleJourney1 = journeySection.querySelectorAll('.title-journey-1');
+                const titleJourney2 = journeySection.querySelectorAll('.title-journey-2');
+
+                titleJourney1.forEach(el => el.style.transform = `translateX(${x1}px)`);
+                titleJourney2.forEach(el => el.style.transform = `translateX(${x2}px)`);
+
+                container.style.setProperty('--reveal-progress', progress);
+            }
+        }
+
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            const container = contactSection.querySelector('.contact-title-container');
+            if (container) {
+                const rect = container.getBoundingClientRect();
+                const startScrollY = viewportHeight;
+                const endScrollY = viewportHeight * 0.15;
+                const currentScrollY = rect.top;
+
+                let progress = 0;
+                if (currentScrollY >= startScrollY) {
+                    progress = 0;
+                } else if (currentScrollY <= endScrollY) {
+                    progress = 1;
+                } else {
+                    progress = (startScrollY - currentScrollY) / (startScrollY - endScrollY);
+                }
+
+                const x1 = maxMove * (1 - progress);
+                const x2 = -maxMove * (1 - progress);
+
+                const titleContact1 = contactSection.querySelectorAll('.title-contact-1');
+                const titleContact2 = contactSection.querySelectorAll('.title-contact-2');
+
+                titleContact1.forEach(el => el.style.transform = `translateX(${x1}px)`);
+                titleContact2.forEach(el => el.style.transform = `translateX(${x2}px)`);
 
                 container.style.setProperty('--reveal-progress', progress);
             }
@@ -1240,7 +1320,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (techLabels.length > 0) {
         const totalLabels = techLabels.length;
-        const sphereRadius = 260; // sphere radius
+        // Sphere radius adapts to screen width to keep the tags floating perfectly around the globe
+        function getSphereRadius() {
+            if (window.innerWidth <= 480) return 120;
+            if (window.innerWidth <= 768) return 160;
+            return 280; // Increased sphere radius for the larger 400px globe on desktop
+        }
+        let sphereRadius = getSphereRadius();
+        window.addEventListener('resize', () => {
+            sphereRadius = getSphereRadius();
+        });
         const perspectiveVal = 900;
         let globeRotation = 0;
         // Match CSS wireframe: 360deg in 25s → radians per ms
@@ -1248,12 +1337,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let lastTime = performance.now();
         let isPaused = false;
 
-        if (globeWrapper) {
-            globeWrapper.addEventListener('mouseenter', () => { isPaused = true; });
-            globeWrapper.addEventListener('mouseleave', () => { isPaused = false; });
-            globeWrapper.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
-            globeWrapper.addEventListener('touchend', () => { isPaused = false; }, { passive: true });
-        }
 
         // Fibonacci sphere distribution for even spacing
         const labelPositions = [];
@@ -1272,14 +1355,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const tiltX = 15 * Math.PI / 180; // 15deg tilt matching CSS
 
+            // Reduced lerpFactor for a slower, more graceful transition (heavy inertia)
+            const lerpFactor = 0.028;
+            currentGlobeScale += (targetGlobeScale - currentGlobeScale) * lerpFactor;
+
+            // Update globe-3d element transform
+            const globe3D = document.querySelector('.globe-3d');
+            if (globe3D) {
+                globe3D.style.transform = `scale(${currentGlobeScale})`;
+            }
+
             for (let i = 0; i < totalLabels; i++) {
                 const { phi, theta } = labelPositions[i];
                 const t = theta + globeRotation;
 
-                // Spherical → Cartesian
-                let x = sphereRadius * Math.sin(phi) * Math.cos(t);
-                let y = sphereRadius * Math.cos(phi);
-                let z = sphereRadius * Math.sin(phi) * Math.sin(t);
+                // Spherical → Cartesian (scaled by currentGlobeScale)
+                let x = sphereRadius * Math.sin(phi) * Math.cos(t) * currentGlobeScale;
+                let y = sphereRadius * Math.cos(phi) * currentGlobeScale;
+                let z = sphereRadius * Math.sin(phi) * Math.sin(t) * currentGlobeScale;
 
                 // Apply X-axis tilt (rotateX(15deg))
                 const cosT = Math.cos(tiltX);
@@ -1292,7 +1385,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const el = techLabels[i];
 
                 // Hide labels on the backside completely
-                if (z < -30) {
+                if (z < -30 * currentGlobeScale) {
                     el.style.opacity = '0';
                     el.style.visibility = 'hidden';
                     el.style.pointerEvents = 'none';
@@ -1305,15 +1398,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const screenY = y * scale;
 
                 // Depth-based opacity — front is bright, near-back fades out
-                const depthRatio = (z + sphereRadius) / (2 * sphereRadius);
-                const opacity = Math.max(0, Math.min(1, depthRatio * 1.5));
+                const depthRatio = (z + sphereRadius * currentGlobeScale) / (2 * sphereRadius * currentGlobeScale || 1);
+                const scaleFade = Math.max(0, Math.min(1, (currentGlobeScale - 0.15) * 2.5));
+                const opacity = Math.max(0, Math.min(1, depthRatio * 1.5)) * scaleFade; // Fade tags out when globe is tiny
 
-                el.style.transform = `translate(${screenX}px, ${screenY}px) scale(${Math.max(0.6, scale)})`;
+                el.style.transform = `translate(${screenX}px, ${screenY}px) scale(${Math.max(0.6 * currentGlobeScale, scale * currentGlobeScale)})`;
                 el.style.opacity = opacity.toFixed(2);
-                el.style.visibility = 'visible';
+                el.style.visibility = currentGlobeScale > 0.22 ? 'visible' : 'hidden';
                 el.style.zIndex = Math.round(z + sphereRadius);
                 el.style.filter = 'none';
-                el.style.pointerEvents = opacity > 0.5 ? 'auto' : 'none';
+                el.style.pointerEvents = opacity > 0.5 && currentGlobeScale > 0.6 ? 'auto' : 'none';
             }
 
             requestAnimationFrame(animateSkillsGlobe);
