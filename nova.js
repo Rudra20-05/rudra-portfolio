@@ -5,6 +5,23 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ===== MOBILE MENU =====
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        // Close menu on link click
+        mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    }
+
     // ===== CUSTOM CURSOR =====
     const cursorDot = document.getElementById('cursorDot');
     const cursorRing = document.getElementById('cursorRing');
@@ -111,41 +128,74 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ===== RUDRA'S KNOWLEDGE BASE =====
+    // ===== RUDRA'S KNOWLEDGE BASE (UPDATED FROM RESUME) =====
     const RUDRA = {
-        name: "Rudra Dalvi",
+        name: "Rudra Prakash Dalvi",
         email: "dalvi.rudra1976@gmail.com",
-        location: "Mumbai, India",
+        phone: "+91 9359394616",
+        location: "Badlapur, India",
         github: "https://github.com/Rudra20-05",
         linkedin: "https://www.linkedin.com/in/rudra-dalvi-7379bb331",
 
-        about: "Rudra Dalvi is an aspiring IT professional with a strong foundation in software development and a specialized interest in Artificial Intelligence and Recommender Systems. He's passionate about building AI-driven applications and scalable web platforms, seeking opportunities to apply technical skills to impactful real-world solutions. He's currently pursuing B.Tech in Information Technology at Vidyalankar Institute of Technology, Mumbai.",
+        about: "Rudra Prakash Dalvi is an aspiring IT professional studying at Vidyalankar Institute of Technology, Mumbai. He has strong foundations in Software Development, Artificial Intelligence, and Full-Stack Web Development. He is experienced in building AI-powered applications, modern web platforms, and scalable solutions, and is passionate about Generative AI, AI Agents, and creating impactful real-world products through technology.",
 
         skills: {
             programming: ["Python", "Java", "C", "JavaScript", "HTML", "CSS"],
+            frameworks: ["React.js", "Flask", "Node.js", "Express.js"],
             aiml: ["Scikit-learn", "Pandas", "NumPy", "TensorFlow", "PyTorch", "Matplotlib"],
-            databases: ["MySQL", "PostgreSQL", "SQL"],
-            tools: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "FastAPI", "Flask", "React", "Node.js"],
+            databases: ["MySQL", "PostgreSQL", "MongoDB", "SQL"],
+            tools: ["Git", "GitHub", "VS Code", "Jupyter Notebook"],
             languages: ["English", "Hindi", "Marathi"]
         },
+
+        experience: [
+            {
+                company: "Autonova AI LLP",
+                role: "Web Development Intern",
+                duration: "May 2026 – Present",
+                points: [
+                    "Developing and maintaining modern web applications for the company’s digital initiatives.",
+                    "Designing responsive user interfaces using React.js and modern frontend technologies.",
+                    "Collaborating with the development team to build scalable and user-centric solutions.",
+                    "Contributing to deployment, optimization, and overall improvement of web platforms."
+                ]
+            },
+            {
+                company: "EnterpriseSI",
+                role: "AI Research & Development Intern",
+                duration: "Jan 2026 – Apr 2026",
+                points: [
+                    "Worked on Generative AI, AI Agents, Retrieval-Augmented Generation (RAG), and related AI research.",
+                    "Contributed to code development and experimentation for the AGI Playground platform.",
+                    "Assisted in building AI-powered solutions and consulting projects for enterprise customers.",
+                    "Conducted research, testing, and implementation of emerging AI technologies and workflows."
+                ]
+            }
+        ],
 
         projects: [
             {
                 name: "AI Marketing SaaS Platform",
                 tech: "Python, Flask, React, Generative AI",
-                description: "A full-stack AI marketing platform for customer sentiment analysis and targeted ad generation. Features REST APIs using Python and Flask for marketing data processing, an interactive frontend dashboard using React for sentiment analytics visualization, and integrated generative AI models for automated ad copy generation.",
+                description: "Developed a full-stack AI marketing platform for customer sentiment analysis and targeted ad generation. Engineered REST APIs using Python and Flask for authentication and marketing data data processing. Built an interactive frontend dashboard using React for sentiment analytics visualization. Integrated generative AI models to automate ad copy generation.",
                 link: "GitHub Repo"
             },
             {
                 name: "Event Management System",
-                tech: "Python, REST APIs, Authentication",
-                description: "A full-stack web application for managing and promoting college events. Includes backend authentication and REST APIs for event CRUD operations, plus a designed responsive frontend interface for event browsing and registration.",
+                tech: "HTML, CSS, JavaScript, Node.js",
+                description: "Developed a full-stack web application for managing and promoting college events. Implemented backend authentication and REST APIs for event CRUD operations. Designed responsive frontend interface for event browsing and registration.",
                 link: "GitHub Repo"
             },
             {
-                name: "EcoQuest: Gamified E-Waste Management Platform",
-                tech: "Full-Stack Web, Authentication, Gamification",
-                description: "A full-stack gamified web platform to promote responsible e-waste disposal through interactive challenges and quizzes. Features secure role-based authentication for admin and users using modern web technologies, and a dynamic responsive user interface to enhance engagement and improve user experience.",
+                name: "Autonova AI Portfolio Website",
+                tech: "Next.js, modern design principles",
+                description: "Developed a modern portfolio platform to showcase Autonova AI’s web development projects, services, and achievements. Built responsive and visually engaging interfaces using Next.js and modern design principles. Implemented optimized layouts, project showcases, and interactive user experiences. Focused on performance, accessibility, and professional brand presentation.",
+                link: "Live Link"
+            },
+            {
+                name: "Naya Dharavi Website (Client Project)",
+                tech: "Next.js",
+                description: "Developed a responsive website for the Naya Dharavi initiative during Web Development Internship at Autonova AI LLP. Designed and implemented a modern user interface using Next.js to showcase the organization's mission, initiatives, and community impact. Built responsive layouts with optimized performance, accessibility, and seamless navigation across devices. Collaborated with the client to deliver a professional digital platform for sharing project updates, information, and outreach activities.",
                 link: "Live Link"
             }
         ],
@@ -155,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: "Vidyalankar Institute of Technology, Mumbai",
                 degree: "B.Tech in Information Technology",
                 duration: "Aug 2023 – May 2027",
-                cgpa: "8.9"
+                cgpa: "8.93"
             },
             hsc: {
                 name: "CHM College",
@@ -180,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 name: "Smart India Hackathon (SIH)",
                 date: "2025",
-                details: "Participated in national level hackathon solving real-world technical problem statements."
+                details: "Participated in national level hackathon focused on solving real-world technical challenges."
             }
         ],
 
@@ -198,9 +248,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function getResponse(query) {
         const q = query.toLowerCase().trim();
 
-        // --- Who is Rudra / About ---
-        if (matches(q, ['who is', 'who\'s', 'tell me about', 'about rudra', 'introduce', 'about him', 'about yourself', 'who are you'])) {
-            return RUDRA.about;
+        // --- Experience / Internships ---
+        if (matches(q, ['experience', 'intern', 'work history', 'job history', 'worked at', 'where did he work', 'autonova', 'enterprisesi'])) {
+            let response = "💼 **Work Experience:**\n\n";
+            RUDRA.experience.forEach(exp => {
+                response += `🏢 **${exp.role}** — ${exp.company}\n`;
+                response += `📅 ${exp.duration}\n`;
+                exp.points.forEach(pt => {
+                    response += `• ${pt}\n`;
+                });
+                response += `\n`;
+            });
+            return response.trim();
         }
 
         // --- Projects ---
@@ -214,8 +273,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const p = RUDRA.projects[1];
                 return `**${p.name}**\n\n${p.description}\n\n🛠️ Tech: ${p.tech}`;
             }
-            if (matches(q, ['ecoquest', 'e-waste', 'ewaste', 'gamif'])) {
+            if (matches(q, ['autonova portfolio', 'autonova website'])) {
                 const p = RUDRA.projects[2];
+                return `**${p.name}**\n\n${p.description}\n\n🛠️ Tech: ${p.tech}`;
+            }
+            if (matches(q, ['ecoquest', 'e-waste', 'ewaste', 'gamif'])) {
+                return `**EcoQuest: Gamified E-Waste Management Platform**\n\nA full-stack gamified web platform to promote responsible e-waste disposal through interactive challenges and quizzes. Features secure role-based authentication and a dynamic responsive user interface.`;
+            }
+            if (matches(q, ['dharavi', 'community platform'])) {
+                const p = RUDRA.projects[3];
                 return `**${p.name}**\n\n${p.description}\n\n🛠️ Tech: ${p.tech}`;
             }
 
@@ -232,9 +298,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const s = RUDRA.skills;
             return `Here's Rudra's tech arsenal:\n\n` +
                 `💻 **Programming:** ${s.programming.join(', ')}\n\n` +
+                `⚙️ **Frameworks & Libraries:** ${s.frameworks.join(', ')}\n\n` +
                 `🤖 **AI/ML Libraries:** ${s.aiml.join(', ')}\n\n` +
                 `🗄️ **Databases:** ${s.databases.join(', ')}\n\n` +
-                `🛠️ **Tools & Frameworks:** ${s.tools.join(', ')}\n\n` +
+                `🛠️ **Tools & Dev Environment:** ${s.tools.join(', ')}\n\n` +
                 `🌍 **Languages:** ${s.languages.join(', ')}`;
         }
 
@@ -245,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `🎓 **${e.college.degree}** — ${e.college.name}\n` +
                 `${e.college.duration} | CGPA: ${e.college.cgpa}\n\n` +
                 `📜 **${e.hsc.exam}** — ${e.hsc.name}\n` +
-                `Entrance Percentile: ${e.hsc.percentile} (${e.hsc.year})\n\n` +
+                `Percentile: ${e.hsc.percentile} (${e.hsc.year})\n\n` +
                 `📜 **${e.ssc.exam}** — ${e.ssc.name}\n` +
                 `Percentage: ${e.ssc.percentage} (${e.ssc.year})`;
         }
@@ -269,9 +336,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // --- Contact ---
-        if (matches(q, ['contact', 'reach', 'email', 'mail', 'hire', 'connect'])) {
+        if (matches(q, ['contact', 'reach', 'email', 'mail', 'hire', 'connect', 'phone', 'mobile', 'call', 'number'])) {
             return `You can reach Rudra through:\n\n` +
                 `📧 **Email:** ${RUDRA.email}\n` +
+                `📞 **Phone:** ${RUDRA.phone}\n` +
                 `📍 **Location:** ${RUDRA.location}\n` +
                 `🐙 **GitHub:** [Rudra20-05](${RUDRA.github})\n` +
                 `💼 **LinkedIn:** [Rudra Dalvi](${RUDRA.linkedin})\n\n` +
@@ -280,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- GitHub ---
         if (matches(q, ['github', 'repo', 'source code', 'open source'])) {
-            return `You can find Rudra's work on GitHub:\n🐙 [github.com/Rudra20-05](${RUDRA.github})\n\nHe has repositories for all his major projects including the AI Marketing Platform and Event Management System.`;
+            return `You can find Rudra's work on GitHub:\n🐙 [github.com/Rudra20-05](${RUDRA.github})\n\nHe has repositories for all his major projects including the AI Marketing SaaS Platform and Event Management System.`;
         }
 
         // --- Opportunities / Internships ---
@@ -290,22 +358,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- Experience / Interests ---
         if (matches(q, ['interest', 'passion', 'specializ', 'focus', 'area'])) {
-            return `Rudra specializes in **Artificial Intelligence** and **Recommender Systems**. He's passionate about building AI-driven applications and scalable web platforms. His focus areas include:\n\n🧠 Machine Learning & Deep Learning\n📊 Data Science & Analytics\n🌐 Full-Stack Web Development\n🔬 Research in AI`;
+            return `Rudra specializes in **Artificial Intelligence**, **Deep Learning**, and **Full-Stack Web Development**. He is passionate about building AI-powered applications, modern web platforms, and scalable solutions. His focus areas include:\n\n🧠 Machine Learning & Neural Networks\n🤖 AI Agents & RAG Workflows\n🌐 Full-Stack Web Development\n🔬 Research in Emerging AI`;
         }
 
         // --- Location ---
         if (matches(q, ['where', 'location', 'city', 'based', 'live'])) {
-            return `Rudra is based in **Mumbai, India**. He's currently studying at Vidyalankar Institute of Technology.`;
+            return `Rudra is based in **Badlapur, India**. He is currently studying at Vidyalankar Institute of Technology.`;
         }
 
-        // --- Age / Personal ---
-        if (matches(q, ['age', 'old', 'born', 'birthday'])) {
-            return contactFallback("Rudra's personal details like age or birthday");
+        // --- Who is Rudra / About (Generic Catch-All) ---
+        if (matches(q, ['who is', 'who\'s', 'about rudra', 'introduce', 'about him', 'about yourself', 'who are you']) || 
+            (q.includes('tell me about') && matches(q, ['rudra', 'himself', 'you', 'yourself']))) {
+            return RUDRA.about;
         }
 
         // --- Greeting ---
         if (matches(q, ['hello', 'hi', 'hey', 'sup', 'what\'s up', 'good morning', 'good evening'])) {
-            return `Hey there! 👋 I'm **NOVA**, Rudra's AI assistant. Ask me anything about his projects, skills, education, or experience. Here are some ideas:\n\n• "What projects has he built?"\n• "What's his tech stack?"\n• "Tell me about his education"`;
+            return `Hey there! 👋 I'm **NOVA**, Rudra's AI assistant. Ask me anything about his projects, skills, education, or work experience. Here are some ideas:\n\n• "What projects has he built?"\n• "Where has he interned?"\n• "Tell me about his tech stack"`;
         }
 
         // --- Thanks ---
@@ -314,15 +383,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // --- Fallback ---
-        return contactFallback("that specific information");
+        return contactFallback(query);
     }
 
     function matches(query, keywords) {
         return keywords.some(kw => query.includes(kw));
     }
 
-    function contactFallback(topic) {
-        return `I don't have ${topic} in my knowledge base. Feel free to reach out to Rudra directly:\n\n📧 **Email:** ${RUDRA.email}\n💼 **LinkedIn:** [Rudra Dalvi](${RUDRA.linkedin})\n\nOr head over to the [Contact section](index.html#contact) for more details! 📬`;
+    function contactFallback(query) {
+        return `I don't have data related to this. Please contact Rudra at ${RUDRA.email}.`;
     }
 
     // Simple markdown-like formatting

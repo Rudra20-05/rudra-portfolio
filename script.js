@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== SCROLL REVEAL ANIMATIONS =====
     const allRevealElements = document.querySelectorAll('.reveal-up, .mask-reveal, .reveal-left, .reveal-right');
-    const revealElements = Array.from(allRevealElements).filter(el => !el.classList.contains('project-row'));
+    const revealElements = Array.from(allRevealElements).filter(el => !el.classList.contains('project-row') && !el.classList.contains('process-item'));
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -442,6 +442,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // Specific Observer for Journey/Timeline items to trigger exactly near the center of the screen
+    const processItems = document.querySelectorAll('.process-item');
+    const processObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+            } else {
+                const rect = entry.boundingClientRect;
+                if (rect.top > window.innerHeight * 0.45) {
+                    entry.target.classList.remove('revealed');
+                }
+            }
+        });
+    }, {
+        threshold: 0,
+        rootMargin: '0px 0px -45% 0px' // Triggers when the element crosses 45% of viewport height (near center)
+    });
+
+    processItems.forEach(el => processObserver.observe(el));
 
     // Specific Observer for Projects to trigger animations only when they are well in view
     const projectRows = document.querySelectorAll('.project-row');
@@ -1266,6 +1286,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // --- SCROLL-DRIVEN NEXT LEVEL BANNER ---
+        const nextLevelSection = document.querySelector('.next-level-section');
+        const nextLevelBanner = document.getElementById('nextLevelBanner');
+        const nextLevelText = document.getElementById('nextLevelText');
+        if (nextLevelSection && nextLevelBanner && nextLevelText) {
+            const rect = nextLevelSection.getBoundingClientRect();
+            
+            // Starts expanding when the top of the section enters the bottom of the viewport
+            const triggerStart = viewportHeight;
+            // Fully expanded when the top of the section reaches 15% viewport height
+            const triggerEnd = viewportHeight * 0.15;
+            
+            let progress = 0;
+            if (rect.top >= triggerStart) {
+                progress = 0;
+            } else if (rect.top <= triggerEnd) {
+                progress = 1;
+            } else {
+                progress = (triggerStart - rect.top) / (triggerStart - triggerEnd);
+            }
+            
+            // Width: 60vw to 100vw
+            const widthVal = 60 + (40 * progress);
+            // Height: 90px to 160px
+            const heightVal = 90 + (70 * progress);
+            // Scale: 1 to 2.4
+            const scaleVal = 1 + (1.4 * progress);
+            
+            nextLevelBanner.style.width = `${widthVal}vw`;
+            nextLevelBanner.style.height = `${heightVal}px`;
+            nextLevelText.style.transform = `scale(${scaleVal})`;
+        }
+
         // --- SCROLL-DRIVEN TIMELINE PROGRESS FOR JOURNEY SECTION ---
         const processGrid = document.querySelector('.process-grid');
         const progressLine = document.getElementById('timelineProgressLine');
@@ -1278,7 +1331,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Top and bottom positions of the timeline line
             const linePageTop = gridPageTop + 56;
-            const linePageBottom = gridPageTop + rect.height - 56;
+            const linePageBottom = gridPageTop + rect.height;
             
             // Scroll trigger scrollY values
             const triggerStart = linePageTop - viewportHeight * 0.6;
@@ -1459,5 +1512,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', updateSplitTitles);
     updateSplitTitles();
+
+    // --- QUALITY TEXT BLUR ANIMATION INTEGRATION ---
+    function initBlurText() {
+        const container = document.getElementById('blurTextContainer');
+        const target = document.getElementById('blurTextTarget');
+        if (!container || !target) return;
+
+        const lines = target.querySelectorAll('.blur-line');
+        let globalWordIndex = 0;
+        const delayMs = 280; // Delay between word appearances (ms)
+
+        lines.forEach(lineEl => {
+            const text = lineEl.textContent.trim();
+            const words = text.split(/\s+/);
+            lineEl.innerHTML = ''; // Clear original text node
+
+            words.forEach((word, wordIdx) => {
+                const span = document.createElement('span');
+                span.className = 'blur-word';
+                span.textContent = word;
+                span.style.setProperty('--delay', `${globalWordIndex * delayMs}ms`);
+                lineEl.appendChild(span);
+
+                if (wordIdx < words.length - 1) {
+                    // Inject a non-breaking space between words
+                    lineEl.appendChild(document.createTextNode('\u00A0'));
+                }
+                globalWordIndex++;
+            });
+        });
+
+        // Trigger animation when the element reaches near the center of the viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const rect = entry.boundingClientRect;
+                const root = entry.rootBounds;
+                if (!root) return;
+
+                if (entry.isIntersecting) {
+                    container.classList.add('animate');
+                } else {
+                    // Only remove .animate when exiting the bottom of the screen (scrolling up)
+                    // We check if the element's top boundary is at or below the root's bottom trigger line
+                    const exitedBottom = rect.top >= root.bottom - 10;
+                    if (exitedBottom) {
+                        container.classList.remove('animate');
+                    }
+                }
+            });
+        }, { 
+            rootMargin: "-25% 0px -25% 0px",
+            threshold: 0 
+        });
+        observer.observe(container);
+    }
+
+    initBlurText();
 
 });
