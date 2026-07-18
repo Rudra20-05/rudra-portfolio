@@ -374,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     const chRailItems = document.querySelectorAll('.chapter-rail-item');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
     function updateActiveLink() {
         const scrollY = window.pageYOffset + 250;
@@ -407,7 +408,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== MOBILE MENU =====
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
 
     menuBtn.addEventListener('click', () => {
         menuBtn.classList.toggle('open');
@@ -417,6 +417,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
+            // Remove active from all other links
+            mobileLinks.forEach(l => l.classList.remove('active'));
+            // Add active to the clicked link
+            link.classList.add('active');
+
             menuBtn.classList.remove('open');
             mobileMenu.classList.remove('open');
             document.body.style.overflow = '';
@@ -774,11 +779,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== PAGE LOADER =====
     const pageLoader = document.getElementById('pageLoader');
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            pageLoader.classList.add('hidden');
-        }, 1400);
-    });
+    if (pageLoader) {
+        const hideLoader = () => {
+            setTimeout(() => {
+                pageLoader.classList.add('hidden');
+            }, 1400);
+        };
+        if (document.readyState === 'complete') {
+            hideLoader();
+        } else {
+            window.addEventListener('load', hideLoader);
+        }
+    }
 
 
     // ===== FLASHLIGHT NIGHT-VISION MODE =====
@@ -815,14 +827,6 @@ document.addEventListener('DOMContentLoaded', () => {
             fabContact.classList.add('visible');
         } else {
             fabContact.classList.remove('visible');
-        }
-    });
-
-    fabContact.addEventListener('click', () => {
-        const contactSection = document.querySelector('#contact');
-        if (contactSection) {
-            const top = contactSection.offsetTop - 80;
-            window.scrollTo({ top, behavior: 'smooth' });
         }
     });
 
@@ -1186,9 +1190,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     globeProgress = (startY - globeCenterY) / (startY - endY);
                 }
 
-                // Smooth linear-to-quadratic mix for very steady growth
-                const easedGlobeProgress = 0.5 * globeProgress + 0.5 * (1 - Math.pow(1 - globeProgress, 2));
-                targetGlobeScale = 0.10 + easedGlobeProgress * 1.05; // scales from 0.10 to 1.15
+                if (window.innerWidth <= 768) {
+                    // Static scale on mobile view (no scroll transitions)
+                    targetGlobeScale = 1.0;
+                } else {
+                    // Smooth linear-to-quadratic mix for very steady growth on desktop
+                    const easedGlobeProgress = 0.5 * globeProgress + 0.5 * (1 - Math.pow(1 - globeProgress, 2));
+                    targetGlobeScale = 0.10 + easedGlobeProgress * 1.05; // scales from 0.10 to 1.15
+                }
             }
         }
 
@@ -1485,7 +1494,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const scaleFade = Math.max(0, Math.min(1, (currentGlobeScale - 0.15) * 2.5));
                 const opacity = Math.max(0, Math.min(1, depthRatio * 1.5)) * scaleFade; // Fade tags out when globe is tiny
 
-                el.style.transform = `translate(${screenX}px, ${screenY}px) scale(${Math.max(0.6 * currentGlobeScale, scale * currentGlobeScale)})`;
+                el.style.transform = `translate(-50%, -50%) translate(${screenX}px, ${screenY}px) scale(${Math.max(0.6 * currentGlobeScale, scale * currentGlobeScale)})`;
                 el.style.opacity = opacity.toFixed(2);
                 el.style.visibility = currentGlobeScale > 0.22 ? 'visible' : 'hidden';
                 el.style.zIndex = Math.round(z + sphereRadius);
